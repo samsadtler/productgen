@@ -2,6 +2,7 @@
 // Modified by Sam Sadtler 2/10/15
 
 var space = ' ';
+var comma = '\,';
 var medium_array = [];
 var theme_array = [
 	"4-place setting tableware" , "plates", "saucers", "cups", "bowls",
@@ -29,11 +30,17 @@ var commaList = "ambient, animal, appreciative, appropriate, awful, certain, con
 
 $(function(){
 	function splitString(stringToSplit, separator) {
-		medium_array = stringToSplit.split(separator);
+		var tempArray = stringToSplit.split(separator);
+		for (var i = 0; i < tempArray.length; i++){
+			medium_array.push(tempArray[i])
+		}
+		
+		
+
 	}
 	commaList.replace(/\,/g,"");
 
-    inString = inString + commaList
+    splitString(commaList,comma)
 	splitString(inString,space);
 	
 
